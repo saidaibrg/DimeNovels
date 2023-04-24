@@ -1,0 +1,9 @@
+data must be in file named 'DimeNovelTestBatch.xls'
+    must be .xls
+    can be renamed in python script
+
+excel sheet needs only one sheet in it called 'DIMENOVELS-COMPLETE'
+    cannot be renamed, unless script is modified substantially
+
+metadata needs a column named 'image_folder'
+    all rows must have a corresponding folder of scans at the mount point
