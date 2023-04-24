@@ -24,13 +24,15 @@ import sys
 import math
 import time
 
+import os
+
 import internetarchive as ia
 import pandas
 
-base_dir = Path('~/googledrive').expanduser()
+base_dir = Path('/mnt/c/Users/Tech Assistant/Documents/Batch').expanduser()
 # Constants, these are likely to change on each run
-SHEET_NAME = 'DIMENOVELS-COMPLETE'
-EXCEL_FILENAME = 'DimeNovelTestBatch.xls'
+SHEET_NAME = 'Batch 4 Street & Smith'
+EXCEL_FILENAME = 'DimeNovelTestBatch.xlsx'
 CONFIG_FILENAME = 'config.ini'
 # this is a column in the spreadsheet
 ID_COL = 'image_folder' # used to be 'scan_id'
@@ -156,6 +158,11 @@ with ia.get_session(config_file = CONFIG_FILENAME) as sess:
 
 	# ensure all scans in the spreadsheet exist
 	print("Checking if rows in the spreadsheet exist as files...")
+	print(os.getcwd())
+	print("bigus")
+	os.chdir("/mnt/c/Users/Tech Assistant/Documents/Batch")
+	print(os.getcwd())
+	print(os.listdir())
 	try:
 		do_for_all(get_rows(), check_dir)
 	except AssertionError:

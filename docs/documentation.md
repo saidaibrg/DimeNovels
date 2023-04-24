@@ -1,3 +1,43 @@
+# things to have installed
+- ubuntu
+- python
+- internet archive 
+- ocaml
+wsl --install
+
+sudo apt update
+sudo apt install pythonpy
+sudo apt install internetarchive
+ia configure
+sudo apt install python3-pip
+pip3 install internetarchive pandas xlrd
+
+sudo add-apt-repository ppa:alessandro-strada/ppa
+sudo apt update && sudo apt install google-drive-ocamlfuse
+sudo apt install opam
+opam init
+opam update
+opam switch create 4.08.0
+opam install google-drive-ocamlfuse
+
+# Setting Up:
+The short version of things you will need to install:
+- Command line interface (such as Windows Terminal, which can be installed from the Microsoft Store)
+- WSL & Ubuntu
+- Python
+- Internet Archive's command line tool
+- (optional) google-drive-ocamlfuse
+
+If you're not already on a Linux machine, you'll have to install Ubuntu.
+
+On Windows, you can do this in the default command line interface with `wsl --install`. Reboot the machine and open it in your preferred command line interface. You may need to enable virtualization in order for Ubuntu to properly install-- the steps for this will depend on your machine.
+
+Now that Ubuntu is set up, install the packages needed to run the program. First, run `sudo apt update` to update the existing packages. Then run `sudo apt install pythonpy python3-pip internetarchive` this includes python (which is required to run the program), pip (which is used to install other dependencies), and the Internet Archive command line tool itself. Then run `pip3 install pandas xlrd`. Pandas and `xlrd` are used for reading the metadata Excel spreadsheets.
+
+Next, set up the IA credentials with `ia configure`. See the [IA Quickstart guide](https://archive.org/services/docs/api/internetarchive/quickstart.html) for more information.
+
+
+
 # Dependencies
 
 Internet Archive's Python library is available as a [Pypi package](https://pypi.org/project/internetarchive/).
