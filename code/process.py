@@ -2,6 +2,7 @@
 Internet Archive upload program for digitized texts
 Copyright (C) 2019  Jakob Cornell
 Modified 2021-2022  Kurtis Vetter
+Modified 2023		Emma Beveridge
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -29,10 +30,11 @@ import os
 import internetarchive as ia
 import pandas
 
+# the path to the folder with the files and the excel sheet
 base_dir = Path('/mnt/c/Users/Tech Assistant/Documents/Batch').expanduser()
 # Constants, these are likely to change on each run
 SHEET_NAME = 'Batch 4 Street & Smith'
-EXCEL_FILENAME = 'DimeNovelTestBatch.xlsx'
+EXCEL_FILENAME = 'Dime Novel Batches.xlsx'
 CONFIG_FILENAME = 'config.ini'
 # this is a column in the spreadsheet
 ID_COL = 'image_folder' # used to be 'scan_id'
@@ -144,6 +146,8 @@ def uploader(session, count = None, test = False):
 		if count is None or uploaded < count:
 			if test:
 				meta['collection'] = 'test_collection'
+			else:
+				meta['collection'] = 'ocdimenov'
 			ia_id = process_row(session, meta, path)
 			print("uploaded {}".format(uploaded + 1), file = sys.stderr)
 			uploaded += 1
@@ -172,10 +176,10 @@ with ia.get_session(config_file = CONFIG_FILENAME) as sess:
 	print("Confirmed all scans in the spreadsheet exist")
 
 	# run a test upload of one item
-	#print("Starting test upload of 1 file...")
-	#do_for_all(get_rows(), uploader(sess, count = 1, test = True))
+	print("Starting test upload of 1 file...")
+	do_for_all(get_rows(), uploader(sess, count = 1, test = True))
 
-	# do the real upload
-	print("Starting real upload...")
-	do_for_all(get_rows(), uploader(sess))
-	print("Uploads complete")
+	# # do the real upload
+	# print("Starting real upload...")
+	# do_for_all(get_rows(), uploader(sess))
+	# print("Uploads complete")
