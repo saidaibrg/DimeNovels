@@ -45,7 +45,7 @@ Or this version, which worked for previous techs:
 
 However, I have not gotten it to work on Windows.
 
-If all else fails, the images can be downloaded manually.
+If all else fails, the images can be downloaded manually. 
 
 
 
@@ -97,7 +97,9 @@ The collection to upload to is specified using the `collection` metadata key.
 
 My program expects the input to be mounted at the path specified in the `base_dir` variable.
 I made a shell script `mount.sh` that mounts the storage on `mnt`, and I set the `base_dir` to point to `mnt`, so that from the `code` directory I run `sudo sh mount.sh` to mount the storage if necessary, and then `python3 process.py` to run the script. This depends on "google drive ocamlfuse". On arch linux, this can be installed from the AUR with the package `google-drive-ocamlfuse-opam`. The `google-drive-ocamlfuse` package may also work, but did not work for me. 
-If the storage is mounted a different way (e.g. using the system file browser), it's probably easiest to change `base_dir` to that location.
+
+If the storage is mounted a different way (e.g. using the system file browser), you should change `base_dir` to that location.
+
 You'll have to find out then where the system mounted the storage.
 
 As far as I know, the program should work equally well on Linux, MacOS, and Windows.

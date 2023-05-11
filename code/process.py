@@ -175,11 +175,12 @@ with ia.get_session(config_file = CONFIG_FILENAME) as sess:
 		exit()
 	print("Confirmed all scans in the spreadsheet exist")
 
-	# run a test upload of one item
-	print("Starting test upload of 1 file...")
-	do_for_all(get_rows(), uploader(sess, count = 1, test = True))
-
-	# # do the real upload
-	# print("Starting real upload...")
-	# do_for_all(get_rows(), uploader(sess))
-	# print("Uploads complete")
+	# run a test upload of one item if "test" is specified in the command line
+	if "test" in sys.argv:
+		print("Starting test upload of 1 file...")
+		do_for_all(get_rows(), uploader(sess, count = 1, test = True))
+	else:
+		# do the real upload
+		print("Starting real upload...")
+		do_for_all(get_rows(), uploader(sess))
+		print("Uploads complete")
