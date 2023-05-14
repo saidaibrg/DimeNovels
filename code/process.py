@@ -162,11 +162,10 @@ with ia.get_session(config_file = CONFIG_FILENAME) as sess:
 
 	# ensure all scans in the spreadsheet exist
 	print("Checking if rows in the spreadsheet exist as files...")
-	print(os.getcwd())
-	print("bigus")
+
+	# this should be your base_dir path
 	os.chdir("/mnt/c/Users/Tech Assistant/Documents/Batch")
-	print(os.getcwd())
-	print(os.listdir())
+
 	try:
 		do_for_all(get_rows(), check_dir)
 	except AssertionError:

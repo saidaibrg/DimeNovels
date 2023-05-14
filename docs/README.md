@@ -57,7 +57,7 @@ You can also add `test` to the end of the command line call to make it upload on
 
 # The program, and running it
 
-Make sure your files are downloaded, and double check the naming conventions. The **folder of scans** and the **Excel spreadsheet** should be in the path specified in the `base_dir` variable.
+Make sure your files are downloaded, and double check the naming conventions. The **folder of scans** and the **Excel spreadsheet** should be in the path specified in the `base_dir` variable. You should also specify it in line 167- `os.chdir("path")`.
 
 I created two `.sh` files, `upload.sh` and `testupload.sh`, in my `home` directory to make the uploading process a little faster.
 
