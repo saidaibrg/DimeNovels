@@ -74,7 +74,7 @@ python3 /mnt/c/Users/'Tech Assistant'/documents/dimenovels/code/process.py test
 ```
 
 Then run `upload.sh` or `testupload.sh`, as appropriate.
-If you get the "Permission denied" error, run `chmod -x [name of your .sh file]`. 
+If you get the "Permission denied" error, run `chmod -x` [name of your .sh file]. 
 
 ## If using google-drive-ocamlfuse
 I made a shell script `mount.sh` that mounts the storage on `mnt`, and I set the `base_dir` to point to `mnt`, so that from the `code` directory I run `sudo sh mount.sh` to mount the storage if necessary, and then `python3 process.py` to run the script. This depends on "google drive ocamlfuse". On arch linux, this can be installed from the AUR with the package `google-drive-ocamlfuse-opam`. The `google-drive-ocamlfuse` package may also work, but did not work for me. 
