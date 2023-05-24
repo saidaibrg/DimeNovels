@@ -41,7 +41,7 @@ In order for this to work, the system has to be able to tell what files are the 
 
 The program combines the scan image files into a ZIP file to be uploaded. If the IA identifier for an item to be uploaded is `xyz`, then it's acceptable for the ZIP file to contain a single folder called `xyz` containing image files whose names are `xyz` followed by a number specifying the order of pages. For example, the first scan could be `xyz-01.jpg`, and the second `xyz-02.jpg`.
 
-The IA is a little fussy about their page labeling: labels should be double-checked. If there are **multiple files that have the number `00`**, such as `xyz-00 [cover]` and then `xyz-00` or `xyz-00a`, the IA will put `xyz-00` before `xyz-00 [cover]` and `xyz-00a`. 
+The IA is a little fussy about their page labeling: labels should be double-checked. If there are **multiple files that have the number `00`**, such as `xyz-00` or `xyz-00a`, the IA will put `xyz-00` before `xyz-00a`. Make sure not to use `xyz-00 [cover]`, it might not work for the ordering that you would like. Your `xyz-00` should always be your cover. 
 
 Essentially, if there are **multiple `xyz-00`s**, rename them to `xyz-00a` `xyz-00b` `xyz-00c`, etc. 
 
@@ -74,7 +74,7 @@ python3 /mnt/c/Users/'Tech Assistant'/documents/dimenovels/code/process.py test
 ```
 
 Then run `upload.sh` or `testupload.sh`, as appropriate.
-If you get the "Permission denied" error, run `chmod -x` followed by the name of your .sh. 
+If you get the "Permission denied" error, run `chmod +x` followed by the name of your .sh. 
 
 ## If using google-drive-ocamlfuse
 I made a shell script `mount.sh` that mounts the storage on `mnt`, and I set the `base_dir` to point to `mnt`, so that from the `code` directory I run `sudo sh mount.sh` to mount the storage if necessary, and then `python3 process.py` to run the script. This depends on "google drive ocamlfuse". On arch linux, this can be installed from the AUR with the package `google-drive-ocamlfuse-opam`. The `google-drive-ocamlfuse` package may also work, but did not work for me. 
