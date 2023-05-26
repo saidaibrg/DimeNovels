@@ -13,7 +13,7 @@ For Windows, you'll have to install Ubuntu or some other unix-like terminal to i
 
 Now that Ubuntu is set up, install the **packages** needed to run the program. First, run `sudo apt update` to update the existing packages. Then run `sudo apt install pythonpy python3-pip internetarchive` this includes Python (which is required to run the program), pip (which is used to install other dependencies), and the Internet Archive command line tool itself. Then run `pip3 install pandas xlrd`. `Pandas` and `xlrd` are used for reading the metadata Excel spreadsheets.
 
-### Mac:
+#### Mac:
 Since Mac already has a unix-like terminal, you only need to install:
 - pip and Python 
 - pandas (Python package)
@@ -22,11 +22,14 @@ Since Mac already has a unix-like terminal, you only need to install:
 
 You might have Python3 already installed on your machine. Take note that pip3 goes with Python3, and pip goes with older versions of Python, make sure to be consistent with using them together when troubleshooting errors in the installation. ```which pip``` or ```which python``` could be helpful commands at determining what is recognized by your system. If, according to these commands, you have python3 + pip3 installed, and pip and python are not, and you are struggling to install them, you could make pip point to pip3. In these cases, a helpful command for installing pandas and internet archive command line tool would be ```python3 -m pip install internetarchive, pandas```. 
 
+### IA Configuration
 Next, set up the **IA credentials** with `ia configure`. See the [IA Quickstart guide](https://archive.org/services/docs/api/internetarchive/quickstart.html) for more information.
 
 Once you have this, you should be good to start! 
 
-## Google Drive Backup
+## Mounting Google Drive
+Since the Dime Novel files are so large in size, dowloading them locally to your computer would be very time-consuming and memory inefficient. To avoid this, you will need to mount the Google Drive on your file system, which basically provides access to all of the files in your drive through the terminal as though they are in your local directory. If you don't have rclone installed in your system already (you can check through ```rclone --version``` command), follow the [installation instructions] (https://rclone.org/install/) for your respective operating system. 
+
 You can install this one of two ways:
 `sudo add-apt-repository ppa:alessandro-strada/ppa`
 `sudo apt update && sudo apt install google-drive-ocamlfuse`
