@@ -1,4 +1,6 @@
 # Setting Up:
+
+#### Windows and Linux: 
 The short version of things you will need to install:
 - A command line interface (such as Windows Terminal, which can be installed from the Microsoft Store)
 - WSL & Ubuntu
@@ -7,11 +9,18 @@ The short version of things you will need to install:
     - xlrd
 - Internet Archive's command line tool
 
-If you're not already on a Linux machine, you'll have to install Ubuntu or some other unix-like terminal to interact with the IA's command line tool.
-
-On Windows, you can do this in the default command line interface with `wsl --install`. Reboot the machine and open it in your preferred command line interface. You may need to enable virtualization in order for Ubuntu to properly install-- the steps for this will depend on your machine.
+For Windows, you'll have to install Ubuntu or some other unix-like terminal to interact with the IA's command line tool. You can do this in the default command line interface with `wsl --install`. Reboot the machine and open it in your preferred command line interface. You may need to enable virtualization in order for Ubuntu to properly install-- the steps for this will depend on your machine.
 
 Now that Ubuntu is set up, install the **packages** needed to run the program. First, run `sudo apt update` to update the existing packages. Then run `sudo apt install pythonpy python3-pip internetarchive` this includes Python (which is required to run the program), pip (which is used to install other dependencies), and the Internet Archive command line tool itself. Then run `pip3 install pandas xlrd`. `Pandas` and `xlrd` are used for reading the metadata Excel spreadsheets.
+
+### Mac:
+Since Mac already has a unix-like terminal, you only need to install:
+- pip and Python 
+- pandas (Python package)
+- xlrd (Python package)
+- Internet Archive's command line tool
+
+You might have Python3 already installed on your machine. Take note that pip3 goes with Python3, and pip goes with older versions of Python, make sure to be consistent with using them together when troubleshooting errors in the installation. ```which pip``` or ```which python``` could be helpful commands at determining what is recognized by your system. If, according to these commands, you have python3 + pip3 installed, and pip and python are not, and you are struggling to install them, you could make pip point to pip3. In these cases, a helpful command for installing pandas and internet archive command line tool would be ```python3 -m pip install internetarchive, pandas```. 
 
 Next, set up the **IA credentials** with `ia configure`. See the [IA Quickstart guide](https://archive.org/services/docs/api/internetarchive/quickstart.html) for more information.
 
