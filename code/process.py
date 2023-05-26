@@ -31,10 +31,10 @@ import internetarchive as ia
 import pandas
 
 # the path to the folder with the files and the excel sheet
-base_dir = Path('/mnt/c/Users/Tech Assistant/Documents/Batch').expanduser()
+base_dir = Path('/Users/techassistant/Documents/GoogleDrive').expanduser()
 # Constants, these are likely to change on each run
-SHEET_NAME = 'Batch 4 Street & Smith'
-EXCEL_FILENAME = 'Dime Novel Batches.xlsx'
+SHEET_NAME = 'Batch7'
+EXCEL_FILENAME = '../Batch/Dime Novel Batches.xlsx'
 CONFIG_FILENAME = 'config.ini'
 # this is a column in the spreadsheet
 ID_COL = 'image_folder' # used to be 'scan_id'
@@ -164,7 +164,7 @@ with ia.get_session(config_file = CONFIG_FILENAME) as sess:
 	print("Checking if rows in the spreadsheet exist as files...")
 
 	# this should be your base_dir path
-	os.chdir("/mnt/c/Users/Tech Assistant/Documents/Batch")
+	os.chdir("/Users/techassistant/Documents/GoogleDrive")
 
 	try:
 		do_for_all(get_rows(), check_dir)
