@@ -1,5 +1,3 @@
-# Setting Up:
-
 ### Installation
 #### Windows and Linux: 
 The short version of things you will need to install:
@@ -28,7 +26,7 @@ Next, set up the **IA credentials** with `ia configure`. See the [IA Quickstart 
 
 Once you have this, you should be good to start! 
 
-## Mounting Google Drive
+### Mounting Google Drive
 Since the Dime Novel files are so large in size, dowloading them locally to your computer would be very time-consuming and memory inefficient. To avoid this, you will need to mount the Google Drive on your file system, which basically provides access to all of the files in your drive through the terminal as though they are in your local directory. If you don't have rclone installed in your system already (you can check through ```rclone --version``` command), follow the [installation instructions] (https://rclone.org/install/) for your respective operating system. 
 
 You will then need to configure rclone through ```rclone config```. Make sure to go through more detailed instructions on configuration in [rclone docs] (https://rclone.org/docs/). There are multiple steps to it, and it takes quite a bit of time to understand!
@@ -37,7 +35,7 @@ After your rclone is set up, you can check to see if it works by running ```rclo
 
 Finally to mount the GDrive in the Batch folder you're trying to upload to the Internet Archive, run ```rclone mount remote:[GOOGLE_DRIVE_FOLDER_PATH] [LOCAL_FILESYSTEM_PATH] --vv --allow-other```. ```-vv``` flag is helpful for debugging and ```--allow-other``` is necessary if your DimeNovels folder is the root. 
 
-# Uploading `texts` items
+## Uploading `texts` items
 
 For items with media type `texts`, the archive displays a pager on the item's webpage that allows the visitor to read through the text.
 In order for this to work, the system has to be able to tell what files are the page scans, and which corresponds to which page.
@@ -50,7 +48,7 @@ Essentially, if there are **multiple `xyz-00`s**, rename them to `xyz-00a` `xyz-
 
 It also has some trouble when accidentally trying to include metadata keys with leading whitespace. It's probably best to strip whitespace from keys to be safe (the program does this).
 
-# Testing
+## Testing
 
 You can use the Internet Archive `test_collection` collection to upload temporary (test) items.
 Items uploaded to the test collection only stay around for about a month.
@@ -58,7 +56,7 @@ The collection to upload to is specified using the `collection` metadata key.
 
 You can also add `test` to the end of the command line call to make it upload one test item.
 
-# The program, and running it
+## The program, and running it
 
 Make sure your files are downloaded, and double check the naming conventions. The **folder of scans** and the **Excel spreadsheet** should be in the path specified in the `base_dir` variable. You should also specify it in line 167- `os.chdir("path")`.
 
@@ -87,7 +85,7 @@ If you encounter the error `AttributeError: 'ValueError' object has no attribute
 ## Otherwise
 If the storage is mounted a different way (e.g. using the system file browser), you should change `base_dir` to that location.
 
-# Resources
+## Resources
 
 - [Documentation](https://archive.org/services/docs/api/internetarchive/index.html) for the Internet Archive Python library
 - [Documentation](https://archive.org/services/docs/api/metadata-schema/index.html) for IA item metadata
