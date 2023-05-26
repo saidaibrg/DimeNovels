@@ -1,5 +1,6 @@
 # Setting Up:
 
+### Installation
 #### Windows and Linux: 
 The short version of things you will need to install:
 - A command line interface (such as Windows Terminal, which can be installed from the Microsoft Store)
@@ -30,21 +31,11 @@ Once you have this, you should be good to start!
 ## Mounting Google Drive
 Since the Dime Novel files are so large in size, dowloading them locally to your computer would be very time-consuming and memory inefficient. To avoid this, you will need to mount the Google Drive on your file system, which basically provides access to all of the files in your drive through the terminal as though they are in your local directory. If you don't have rclone installed in your system already (you can check through ```rclone --version``` command), follow the [installation instructions] (https://rclone.org/install/) for your respective operating system. 
 
-You can install this one of two ways:
-`sudo add-apt-repository ppa:alessandro-strada/ppa`
-`sudo apt update && sudo apt install google-drive-ocamlfuse`
+You will then need to configure rclone through ```rclone config```. Make sure to go through more detailed instructions on configuration in [rclone docs] (https://rclone.org/docs/). There are multiple steps to it, and it takes quite a bit of time to understand!
 
-Or this version, which worked for previous techs:
-`sudo apt install opam`
-`opam init`
-`opam update`
-`opam switch create 4.08.0`
-`opam install google-drive-ocamlfuse`
+After your rclone is set up, you can check to see if it works by running ```rclone lsd remote:[GOOGLE_DRIVE_FOLDER_PATH]``` which should output the contents of the Google Drive folder you are trying to work with. 
 
-However, I have not gotten it to work on Windows.
-
-If all else fails, the images can be downloaded manually and still work. This is also useful for double-checking scan names!
-
+Finally to mount the GDrive in the Batch folder you're trying to upload to the Internet Archive, run ```rclone mount remote:[GOOGLE_DRIVE_FOLDER_PATH] [LOCAL_FILESYSTEM_PATH] --vv --allow-other```. ```-vv``` flag is helpful for debugging and ```--allow-other``` is necessary if your DimeNovels folder is the root. 
 
 # Uploading `texts` items
 
@@ -88,11 +79,6 @@ python3 /mnt/c/Users/'Tech Assistant'/documents/dimenovels/code/process.py test
 Then run `upload.sh` or `testupload.sh`, as appropriate.
 If you get the "Permission denied" error, run `chmod +x` followed by the name of your .sh. 
 
-## If using google-drive-ocamlfuse
-I made a shell script `mount.sh` that mounts the storage on `mnt`, and I set the `base_dir` to point to `mnt`, so that from the `code` directory I run `sudo sh mount.sh` to mount the storage if necessary, and then `python3 process.py` to run the script. This depends on "google drive ocamlfuse". On arch linux, this can be installed from the AUR with the package `google-drive-ocamlfuse-opam`. The `google-drive-ocamlfuse` package may also work, but did not work for me. 
-
-As far as I know, the program should work equally well on Linux, MacOS, and Windows.
-Only the mount script is specific to linux. 
 
 ## Troubleshooting
 
@@ -100,7 +86,6 @@ If you encounter the error `AttributeError: 'ValueError' object has no attribute
 
 ## Otherwise
 If the storage is mounted a different way (e.g. using the system file browser), you should change `base_dir` to that location.
-
 
 # Resources
 
