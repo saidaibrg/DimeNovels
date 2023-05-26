@@ -1,4 +1,4 @@
-### Installation
+## Installation
 #### Windows and Linux: 
 The short version of things you will need to install:
 - A command line interface (such as Windows Terminal, which can be installed from the Microsoft Store)
