@@ -33,14 +33,14 @@ Since Dime Novel files are so large in size, dowloading them locally to your com
 
 2) If you just installed rclone, you will need to reconfigure it: ```rclone config```. Detailed instructions on configuration can be found in [rclone docs](https://rclone.org/docs/).
 
-3) After your rclone is set up, you can check to see if you have access to the folder by running: ```rclone lsd remote:[GOOGLE_DRIVE_FOLDER_PATH]``` which should output the contents of the GDrive folder you want to upload.
+3) After your rclone is set up, you can check if you have access to the folder: ```rclone lsd remote:[GOOGLE_DRIVE_FOLDER_PATH]``` This should output the contents of the GDrive folder you want to upload.
    - Example: ```rclone lsd remote:BATCH_85```
-   - If terminal throws errors, make sure that the folder path does not contain any spaces or special characters and rename it accordingly.
+   - If terminal throws errors, make sure that the folder path does not contain any spaces or special characters and rename it accordingly. There should be no space after ```:remote```
    
 4) Mount the GDrive folder. Run ```rclone mount remote:[GOOGLE_DRIVE_FOLDER_PATH] [LOCAL_FILESYSTEM_PATH] -vv --allow-other```.
    - ```-vv``` flag is helpful for debugging and ```--allow-other``` is necessary if your DimeNovels folder is the root.
    - [LOCAL_FILESYSTEM_PATH] is the path to an empty local directory where your GDrive will be mounted
-   - [GOOGLE_DRIVE_FOLDER_PATH] is the same path from Step (3)
+   - [GOOGLE_DRIVE_FOLDER_PATH] is the same path from (3)
 
 ## Uploading `texts` items
 
