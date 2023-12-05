@@ -38,9 +38,9 @@ Since Dime Novel files are so large in size, dowloading them locally to your com
    - If terminal throws errors, make sure that the folder path does not contain any spaces or special characters and rename it accordingly.
    
 4) Mount the GDrive folder. Run ```rclone mount remote:[GOOGLE_DRIVE_FOLDER_PATH] [LOCAL_FILESYSTEM_PATH] -vv --allow-other```.
-```-vv``` flag is helpful for debugging and ```--allow-other``` is necessary if your DimeNovels folder is the root.
-[LOCAL_FILESYSTEM_PATH] is the path to an empty local directory where your GDrive will be mounted
-[GOOGLE_DRIVE_FOLDER_PATH] is the same path from (3)
+   - ```-vv``` flag is helpful for debugging and ```--allow-other``` is necessary if your DimeNovels folder is the root.
+   - [LOCAL_FILESYSTEM_PATH] is the path to an empty local directory where your GDrive will be mounted
+   - [GOOGLE_DRIVE_FOLDER_PATH] is the same path from Step (3)
 
 ## Uploading `texts` items
 
